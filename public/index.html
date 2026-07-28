@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dr Mwamba Bien-Vieillir — Guides naturels experts pour bien vieillir, une peau éclatante et une santé rayonnante. Méthodes 100% naturelles.">
+  <title>Dr Mwamba Bien-Vieillir — Soins Naturels Experts</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       VARIABLES — BLEU ARDOISE & TERRACOTTA
+       ======================================== */
+    :root {
+      --ardoise: #2B3A4A;
+      --ardoise-profond: #1E2A38;
+      --bleu: #3E5266;
+      --terracotta: #C67B5C;
+      --terracotta-clair: #D89A80;
+      --or-doux: #C9A96A;
+      --creme: #F6F2EB;
+      --creme-fonce: #EAE2D4;
+      --texte: #2B3A4A;
+      --texte-doux: #64717E;
+      --blanc: #FFFFFF;
+      --etoile: #D9A441;
+      --ombre-s: 0 2px 18px rgba(43,58,74,0.08);
+      --ombre-m: 0 6px 32px rgba(43,58,74,0.12);
+      --ombre-l: 0 14px 44px rgba(43,58,74,0.18);
+      --r: 14px;
+      --r-l: 22px;
+      --t: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Mulish', -apple-system, sans-serif;
+      color: var(--texte);
+      background: var(--creme);
+      line-height: 1.7;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    h1, h2, h3, h4 { font-family: 'Marcellus', Georgia, serif; font-weight: 400; line-height: 1.15; }
+    h1 { font-size: clamp(2.3rem, 5vw, 3.9rem); }
+    h2 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); }
+    h3 { font-size: clamp(1.3rem, 2.5vw, 1.7rem); }
+
+    .eyebrow {
+      font-family: 'Mulish', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .lead { font-size: 1.08rem; color: var(--texte-doux); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+    .head { text-align: center; margin-bottom: 54px; }
+    .head h2 { margin-bottom: 14px; }
+    .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 94px 0; }
+
+    /* BOUTONS */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 17px 38px;
+      font-family: 'Mulish', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      border-radius: 50px;
+      border: 2px solid transparent;
+      cursor: pointer; transition: var(--t);
+      min-height: 54px; text-align: center;
+    }
+    .btn-terra { background: var(--terracotta); color: var(--blanc); border-color: var(--terracotta); }
+    .btn-terra:hover { background: #b56a4b; border-color: #b56a4b; transform: translateY(-2px); box-shadow: 0 8px 26px rgba(198,123,92,0.35); }
+    .btn-outline { background: transparent; color: var(--ardoise); border-color: var(--ardoise); }
+    .btn-outline:hover { background: var(--ardoise); color: var(--creme); transform: translateY(-2px); }
+    .btn-buy { background: var(--terracotta); color: var(--blanc); border-color: var(--terracotta); width: 100%; font-size: 1.05rem; padding: 18px 40px; }
+    .btn-buy:hover { background: #b56a4b; border-color: #b56a4b; transform: translateY(-2px); box-shadow: 0 8px 26px rgba(198,123,92,0.35); }
+
+    /* HEADER */
+    .site-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 18px 0; transition: var(--t); }
+    .site-header.scrolled { background: rgba(246,242,235,0.96); backdrop-filter: blur(12px); box-shadow: var(--ombre-s); padding: 12px 0; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Marcellus', serif; font-size: 1.35rem; color: var(--ardoise); }
+    .logo span { color: var(--terracotta); }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 0.88rem; color: var(--texte-doux); transition: var(--t); font-weight: 600; }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-cta { background: var(--ardoise); color: var(--creme) !important; padding: 10px 22px; border-radius: 50px; font-size: 0.85rem !important; }
+    .nav-cta:hover { background: var(--bleu); }
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
+    .burger span { width: 26px; height: 2px; background: var(--ardoise); transition: var(--t); border-radius: 2px; }
+    .burger.on span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .burger.on span:nth-child(2) { opacity: 0; }
+    .burger.on span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    .mnav { display: none; position: fixed; inset: 0; background: rgba(246,242,235,0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+    .mnav.open { display: flex; }
+    .mnav a { font-family: 'Marcellus', serif; font-size: 1.6rem; color: var(--ardoise); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 90px; position: relative; background: linear-gradient(160deg, var(--creme) 0%, var(--creme-fonce) 100%); overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -120px; right: -120px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(198,123,92,0.1) 0%, transparent 70%); }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
+    .hero h1 { margin-bottom: 22px; color: var(--ardoise); }
+    .hero h1 em { font-style: italic; color: var(--terracotta); }
+    .hero-desc { font-size: 1.1rem; color: var(--texte-doux); margin-bottom: 20px; line-height: 1.75; max-width: 520px; }
+    .hero-checks { list-style: none; margin-bottom: 32px; }
+    .hero-checks li { display: flex; align-items: center; gap: 10px; font-size: 0.98rem; color: var(--texte); padding: 5px 0; font-weight: 600; }
+    .hero-checks li::before { content: '✓'; width: 24px; height: 24px; background: var(--terracotta); color: var(--blanc); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+    .hero-social { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .hero-stars { color: var(--etoile); font-size: 1rem; letter-spacing: 1px; }
+    .hero-social-text { font-size: 0.85rem; color: var(--texte-doux); }
+    .hero-social-text strong { color: var(--texte); }
+    .hero-visual { position: relative; }
+    .hero-img-wrap { position: relative; border-radius: var(--r-l); overflow: hidden; box-shadow: var(--ombre-l); border: 3px solid var(--blanc); }
+    .hero-img-wrap img { width: 100%; height: 600px; object-fit: cover; }
+    .hero-badge { position: absolute; bottom: 24px; left: -20px; background: var(--blanc); padding: 16px 22px; border-radius: var(--r); box-shadow: var(--ombre-m); display: flex; align-items: center; gap: 12px; z-index: 3; }
+    .hero-badge-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--terracotta), var(--terracotta-clair)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .hero-badge-text { line-height: 1.3; }
+    .hero-badge-text strong { display: block; font-family: 'Marcellus', serif; font-size: 1.1rem; color: var(--ardoise); }
+    .hero-badge-text span { font-size: 0.78rem; color: var(--texte-doux); }
+
+    /* TRUST */
+    .trust { background: var(--ardoise); padding: 22px 0; }
+    .trust-items { display: flex; justify-content: center; align-items: center; gap: 44px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 9px; color: var(--creme); font-size: 0.9rem; font-weight: 600; }
+    .trust-item .ti-icon { color: var(--or-doux); font-size: 1.1rem; }
+
+    /* VIDEO */
+    .video-sec { background: var(--creme); }
+    .video-wrap { max-width: 820px; margin: 0 auto; border-radius: var(--r-l); overflow: hidden; box-shadow: var(--ombre-m); aspect-ratio: 16/9; border: 3px solid var(--blanc); }
+    .video-wrap iframe { width: 100%; height: 100%; border: none; }
+
+    /* PROBLEME */
+    .problem { background: var(--ardoise); color: var(--creme); }
+    .problem .eyebrow { color: var(--or-doux); }
+    .problem h2 { color: var(--creme); }
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 48px; }
+    .problem-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,169,106,0.2); border-radius: var(--r); padding: 32px 26px; text-align: center; }
+    .problem-card .pc-icon { font-size: 2.4rem; margin-bottom: 16px; }
+    .problem-card h3 { color: var(--or-doux); font-size: 1.2rem; margin-bottom: 10px; }
+    .problem-card p { font-size: 0.92rem; color: rgba(246,242,235,0.75); line-height: 1.6; }
+    .problem-note { text-align: center; margin-top: 44px; font-family: 'Marcellus', serif; font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-style: italic; color: var(--creme); max-width: 720px; margin-left: auto; margin-right: auto; }
+    .problem-note span { color: var(--or-doux); }
+
+    /* COMPARAISON */
+    .compare { background: var(--creme-fonce); }
+    .compare-table { max-width: 780px; margin: 0 auto; background: var(--blanc); border-radius: var(--r-l); overflow: hidden; box-shadow: var(--ombre-m); }
+    .compare-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; align-items: center; }
+    .compare-row:not(:last-child) { border-bottom: 1px solid var(--creme-fonce); }
+    .compare-head { background: var(--ardoise); color: var(--creme); }
+    .compare-head > div { padding: 20px 18px; font-family: 'Marcellus', serif; text-align: center; }
+    .compare-head > div:first-child { text-align: left; }
+    .compare-head .ch-gold { color: var(--or-doux); }
+    .compare-cell { padding: 16px 18px; font-size: 0.9rem; }
+    .compare-cell:first-child { font-weight: 700; color: var(--texte); }
+    .compare-cell.center { text-align: center; }
+    .compare-cell .yes { color: #2e9e5b; font-size: 1.3rem; font-weight: 700; }
+    .compare-cell .no { color: #d0503a; font-size: 1.3rem; font-weight: 700; }
+    .compare-col-highlight { background: rgba(198,123,92,0.07); }
+    .comp-save { text-align: center; margin-top: 32px; font-family: 'Marcellus', serif; font-size: 1.4rem; color: var(--terracotta); }
+    .comp-save span { color: var(--ardoise); }
+
+    /* AVANT/APRES */
+    .ba { background: var(--creme); }
+    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .ba-card { background: var(--blanc); border-radius: var(--r-l); overflow: hidden; box-shadow: var(--ombre-s); transition: var(--t); }
+    .ba-card:hover { transform: translateY(-4px); box-shadow: var(--ombre-m); }
+    .ba-img img { width: 100%; height: auto; display: block; }
+    .ba-info { padding: 22px 24px; }
+    .ba-info .ba-name { font-family: 'Marcellus', serif; font-size: 1.15rem; margin-bottom: 4px; }
+    .ba-info .ba-time { font-size: 0.82rem; color: var(--terracotta); font-weight: 700; margin-bottom: 8px; }
+    .ba-info .ba-desc { font-size: 0.88rem; color: var(--texte-doux); line-height: 1.6; }
+
+    /* GUIDES */
+    .guides { background: var(--creme-fonce); }
+    .guides-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
+    .guide { background: var(--blanc); border-radius: var(--r-l); overflow: hidden; box-shadow: var(--ombre-m); transition: var(--t); position: relative; display: flex; flex-direction: column; }
+    .guide:hover { transform: translateY(-5px); box-shadow: var(--ombre-l); }
+    .guide-badge { position: absolute; top: 18px; right: 18px; background: var(--terracotta); color: var(--blanc); padding: 5px 14px; border-radius: 50px; font-size: 0.72rem; font-weight: 700; z-index: 3; }
+    .guide-badge.bestseller { background: var(--or-doux); color: var(--ardoise); }
+    .guide-cover { background: linear-gradient(150deg, var(--ardoise) 0%, var(--bleu) 100%); padding: 40px 30px; display: flex; align-items: center; justify-content: center; min-height: 320px; }
+    .guide-book { width: 190px; border-radius: 4px 10px 10px 4px; box-shadow: 8px 10px 30px rgba(0,0,0,0.35); transition: var(--t); }
+    .guide:hover .guide-book { transform: scale(1.04) rotate(-1deg); }
+    .guide-body { padding: 30px; display: flex; flex-direction: column; flex: 1; }
+    .guide-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .guide-stars { color: var(--etoile); font-size: 0.88rem; letter-spacing: 1px; }
+    .guide-rating-txt { font-size: 0.76rem; color: var(--texte-doux); }
+    .guide h3 { font-size: 1.3rem; margin-bottom: 12px; line-height: 1.25; }
+    .guide-desc { font-size: 0.9rem; color: var(--texte-doux); line-height: 1.65; margin-bottom: 18px; }
+    .guide-list { list-style: none; margin-bottom: 22px; }
+    .guide-list li { font-size: 0.86rem; color: var(--texte); padding: 5px 0 5px 26px; position: relative; line-height: 1.5; }
+    .guide-list li::before { content: '✓'; position: absolute; left: 0; color: var(--terracotta); font-weight: 700; }
+    .guide-foot { margin-top: auto; }
+    .guide-price { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+    .guide-price-old { font-family: 'Marcellus', serif; font-size: 1.3rem; color: var(--texte-doux); text-decoration: line-through; opacity: 0.6; }
+    .guide-price-new { font-family: 'Marcellus', serif; font-size: 2.4rem; color: var(--ardoise); }
+    .guide-price-sub { font-size: 0.76rem; color: var(--texte-doux); margin-bottom: 16px; }
+    .guide-guarantee { font-size: 0.76rem; color: var(--texte-doux); text-align: center; margin-top: 12px; }
+
+    /* TEMOIGNAGES */
+    .testi { background: var(--creme); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testi-card { background: var(--blanc); border-radius: var(--r-l); padding: 28px; box-shadow: var(--ombre-s); transition: var(--t); }
+    .testi-card:hover { transform: translateY(-3px); box-shadow: var(--ombre-m); }
+    .testi-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .testi-avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; background: var(--creme-fonce); flex-shrink: 0; }
+    .testi-name { font-family: 'Marcellus', serif; font-size: 1.05rem; }
+    .testi-loc { font-size: 0.78rem; color: var(--texte-doux); }
+    .testi-stars { color: var(--etoile); font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 12px; }
+    .testi-text { font-size: 0.88rem; color: var(--texte-doux); line-height: 1.7; font-style: italic; }
+
+    /* WHATSAPP */
+    .whatsapp { background: var(--creme-fonce); }
+    .whatsapp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .whatsapp-card { background: var(--blanc); border-radius: var(--r-l); overflow: hidden; box-shadow: var(--ombre-m); transition: var(--t); }
+    .whatsapp-card:hover { transform: translateY(-4px); box-shadow: var(--ombre-l); }
+    .whatsapp-card img { width: 100%; height: auto; display: block; }
+
+    /* DOC */
+    .doc { background: var(--creme); }
+    .doc-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 54px; align-items: center; }
+    .doc-photo { border-radius: var(--r-l); overflow: hidden; border: 3px solid var(--terracotta); box-shadow: var(--ombre-m); max-width: 380px; aspect-ratio: 4/5; }
+    .doc-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .doc h2 { margin-bottom: 6px; }
+    .doc-role { font-size: 0.98rem; color: var(--terracotta); font-weight: 700; font-style: italic; margin-bottom: 22px; }
+    .doc-bio { font-size: 0.96rem; color: var(--texte-doux); line-height: 1.8; margin-bottom: 14px; }
+    .doc-creds { list-style: none; margin-top: 20px; }
+    .doc-creds li { padding: 6px 0 6px 28px; position: relative; font-size: 0.92rem; color: var(--texte); }
+    .doc-creds li::before { content: ''; position: absolute; left: 6px; top: 12px; width: 8px; height: 8px; background: var(--terracotta); border-radius: 50%; }
+
+    /* STATS */
+    .stats { background: var(--ardoise); padding: 64px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; text-align: center; }
+    .stat-num { font-family: 'Marcellus', serif; font-size: clamp(2.2rem, 4vw, 3.3rem); color: var(--or-doux); display: block; margin-bottom: 6px; }
+    .stat-label { font-size: 0.85rem; color: rgba(246,242,235,0.72); }
+
+    /* GARANTIE */
+    .guarantee { background: var(--creme-fonce); }
+    .guarantee-box { max-width: 720px; margin: 0 auto; text-align: center; background: var(--blanc); border-radius: var(--r-l); padding: 50px 40px; box-shadow: var(--ombre-m); border-top: 4px solid var(--terracotta); }
+    .guarantee-icon { font-size: 3.4rem; margin-bottom: 18px; }
+    .guarantee-box h2 { margin-bottom: 14px; }
+    .guarantee-box p { font-size: 0.98rem; color: var(--texte-doux); line-height: 1.7; margin-bottom: 24px; }
+
+    /* FAQ */
+    .faq { background: var(--creme); }
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item { background: var(--blanc); border-radius: var(--r); margin-bottom: 12px; overflow: hidden; box-shadow: var(--ombre-s); }
+    .faq-q { width: 100%; background: none; border: none; padding: 22px 26px; font-family: 'Marcellus', serif; font-size: 1.12rem; color: var(--texte); cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; text-align: left; transition: var(--t); }
+    .faq-q:hover { color: var(--terracotta); }
+    .faq-arrow { color: var(--terracotta); font-size: 1.2rem; transition: var(--t); flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-a-in { padding: 0 26px 22px; font-size: 0.92rem; color: var(--texte-doux); line-height: 1.7; }
+
+    /* CTA FINALE */
+    .final { background: linear-gradient(160deg, var(--ardoise) 0%, var(--ardoise-profond) 100%); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
+    .final::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(198,123,92,0.14) 0%, transparent 70%); }
+    .final-inner { position: relative; z-index: 2; }
+    .final h2 { color: var(--creme); margin-bottom: 14px; }
+    .final .lead { color: rgba(246,242,235,0.78); margin-bottom: 34px; }
+    .final-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .final-btn { background: var(--terracotta); color: var(--blanc); border: none; padding: 16px 30px; border-radius: 50px; font-family: 'Mulish', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: var(--t); min-height: 52px; }
+    .final-btn:hover { background: #b56a4b; transform: translateY(-2px); box-shadow: 0 8px 26px rgba(198,123,92,0.35); }
+    .final-trust { font-size: 0.82rem; color: rgba(246,242,235,0.6); }
+
+    /* FOOTER */
+    .footer { background: var(--ardoise-profond); color: rgba(246,242,235,0.7); padding: 60px 0 26px; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 40px; }
+    .footer-brand .logo { color: var(--creme); margin-bottom: 12px; display: block; }
+    .footer-tag { font-size: 0.86rem; color: rgba(246,242,235,0.5); line-height: 1.6; }
+    .footer-col h4 { font-family: 'Marcellus', serif; color: var(--creme); font-size: 1.05rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 9px; }
+    .footer-col a { font-size: 0.84rem; color: rgba(246,242,235,0.55); transition: var(--t); }
+    .footer-col a:hover { color: var(--or-doux); }
+    .footer-bottom { border-top: 1px solid rgba(246,242,235,0.1); padding-top: 22px; text-align: center; }
+    .footer-bottom p { font-size: 0.78rem; color: rgba(246,242,235,0.4); line-height: 1.7; }
+
+    /* STICKY CTA MOBILE */
+    .sticky-cta { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--blanc); box-shadow: 0 -4px 20px rgba(43,58,74,0.12); padding: 12px 16px; z-index: 900; display: none; align-items: center; justify-content: space-between; gap: 12px; }
+    .sticky-cta-info { line-height: 1.2; }
+    .sticky-cta-info strong { display: block; font-family: 'Marcellus', serif; font-size: 1rem; color: var(--ardoise); }
+    .sticky-cta-info span { font-size: 0.75rem; color: var(--texte-doux); }
+    .sticky-cta a { background: var(--terracotta); color: var(--blanc); padding: 13px 22px; border-radius: 50px; font-size: 0.88rem; font-weight: 700; white-space: nowrap; }
+
+    /* NOTIF ACHAT */
+    .buy-notif { position: fixed; bottom: 20px; left: 20px; background: var(--blanc); border-radius: 14px; box-shadow: 0 6px 30px rgba(43,58,74,0.18); padding: 12px 16px 12px 12px; display: flex; align-items: center; gap: 12px; max-width: 320px; z-index: 950; transform: translateX(-120%); opacity: 0; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease; border-left: 3px solid var(--terracotta); }
+    .buy-notif.show { transform: translateX(0); opacity: 1; }
+    .buy-notif-icon { width: 42px; height: 42px; background: linear-gradient(135deg, var(--terracotta), var(--terracotta-clair)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .buy-notif-content { line-height: 1.35; }
+    .buy-notif-content .bn-name { font-weight: 700; font-size: 0.85rem; color: var(--texte); }
+    .buy-notif-content .bn-product { font-size: 0.8rem; color: var(--texte-doux); }
+    .buy-notif-content .bn-time { font-size: 0.7rem; color: var(--terracotta); font-weight: 700; margin-top: 2px; }
+    .buy-notif-close { position: absolute; top: 6px; right: 8px; background: none; border: none; color: var(--texte-doux); font-size: 1rem; cursor: pointer; opacity: 0.4; line-height: 1; }
+    .buy-notif-close:hover { opacity: 0.8; }
+
+    /* ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .hero-desc, .hero-checks { margin-left: auto; margin-right: auto; }
+      .hero-checks li { justify-content: center; }
+      .hero-buttons, .hero-social { justify-content: center; }
+      .hero-img-wrap img { height: 440px; }
+      .hero-badge { left: 16px; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .ba-grid { grid-template-columns: 1fr 1fr; }
+      .guides-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .whatsapp-grid { grid-template-columns: 1fr 1fr; }
+      .doc-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+      .doc-photo { margin: 0 auto; }
+      .doc-creds li { text-align: left; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 68px 0; }
+      .hero { padding-top: 100px; padding-bottom: 40px; min-height: auto; }
+      .hero-img-wrap img { height: 360px; }
+      .hero-buttons { flex-direction: column; }
+      .hero-buttons .btn { width: 100%; }
+      .trust-items { gap: 18px; }
+      .trust-item { font-size: 0.8rem; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .whatsapp-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 26px; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .compare-row { grid-template-columns: 1.3fr 0.85fr 0.85fr; }
+      .compare-cell { padding: 12px 10px; font-size: 0.8rem; }
+      .compare-head > div { padding: 14px 10px; font-size: 0.85rem; }
+      .sticky-cta { display: flex; }
+      body { padding-bottom: 76px; }
+      .buy-notif { bottom: 84px; left: 10px; right: 10px; max-width: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">Dr Mwamba <span>Bien-Vieillir</span></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#video">Présentation</a></li>
+          <li><a href="#resultats">Résultats</a></li>
+          <li><a href="#guides">Guides</a></li>
+          <li><a href="#avis">Avis</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#guides" class="nav-cta">Voir les guides</a></li>
+        </ul>
+      </nav>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mnav" id="mnav">
+    <a href="#video" class="ml">Présentation</a>
+    <a href="#resultats" class="ml">Résultats</a>
+    <a href="#guides" class="ml">Guides</a>
+    <a href="#avis" class="ml">Avis</a>
+    <a href="#faq" class="ml">FAQ</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">Bien Vieillir Naturellement</span>
+          <h1>Vieillir en <em>Beauté et en Santé</em>, Naturellement</h1>
+          <p class="hero-desc">
+            Les guides du Dr Mwamba vous révèlent des méthodes 100% naturelles pour prendre soin de votre corps et de votre peau après 45 ans — sans médicaments, sans traitements coûteux, avec ce que la nature vous offre.
+          </p>
+          <ul class="hero-checks">
+            <li>Résultats visibles dès 2 à 4 semaines</li>
+            <li>Méthodes simples, 10 minutes par jour</li>
+            <li>Téléchargement immédiat en PDF</li>
+          </ul>
+          <div class="hero-buttons">
+            <a href="#guides" class="btn btn-terra">Je découvre les guides →</a>
+            <a href="#resultats" class="btn btn-outline">Voir les résultats</a>
+          </div>
+          <div class="hero-social">
+            <span class="hero-stars">★★★★★</span>
+            <span class="hero-social-text"><strong>+5 000 personnes</strong> nous font déjà confiance</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal d2">
+          <div class="hero-img-wrap">
+            <!-- IMAGE : photo hero -->
+            <img src="images/hero.png" alt="Personne épanouie qui vieillit en bonne santé" loading="eager">
+          </div>
+          <div class="hero-badge">
+            <div class="hero-badge-icon">🌿</div>
+            <div class="hero-badge-text">
+              <strong>100% Naturel</strong>
+              <span>Validé par un médecin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <div class="trust">
+    <div class="container">
+      <div class="trust-items">
+        <span class="trust-item"><span class="ti-icon">👨‍⚕️</span> Validé par un médecin</span>
+        <span class="trust-item"><span class="ti-icon">🌿</span> 100% naturel</span>
+        <span class="trust-item"><span class="ti-icon">⚡</span> Accès immédiat</span>
+        <span class="trust-item"><span class="ti-icon">🛡️</span> Garantie 30 jours</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO -->
+  <section class="video-sec" id="video">
+    <div class="container">
+      <div class="head reveal">
+        <span class="eyebrow">Présentation</span>
+        <h2>Le Dr Mwamba Vous Explique Sa Méthode</h2>
+        <p class="lead">Découvrez en quelques minutes pourquoi des milliers de personnes ont adopté ces méthodes naturelles pour bien vieillir.</p>
+      </div>
+      <div class="video-wrap reveal">
+        <iframe src="https://www.youtube.com/embed/wkySzo-bFOQ" title="Présentation Dr Mwamba" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEME -->
+  <section class="problem">
+    <div class="container">
+      <div class="head reveal">
+        <span class="eyebrow">Vous Reconnaissez-Vous ?</span>
+        <h2>Ces Signes du Temps Qui Vous Préoccupent</h2>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <div class="pc-icon">😔</div>
+          <h3>Un corps qui change</h3>
+          <p>Peau qui se relâche, énergie qui baisse, douleurs qui apparaissent… Vous sentez que votre corps n'est plus le même.</p>
+        </div>
+        <div class="problem-card reveal d1">
+          <div class="pc-icon">💸</div>
+          <h3>Des fortunes dépensées</h3>
+          <p>Crèmes coûteuses, compléments, traitements… beaucoup d'argent pour des résultats décevants et temporaires.</p>
+        </div>
+        <div class="problem-card reveal d2">
+          <div class="pc-icon">⏳</div>
+          <h3>Le sentiment qu'il est trop tard</h3>
+          <p>Vous pensez que c'est simplement l'âge. Que rien ne peut changer. Qu'il faut l'accepter.</p>
+        </div>
+      </div>
+      <p class="problem-note">
+        La vérité ? Le problème n'a jamais été votre âge. C'était le <span>manque de la bonne méthode.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ECONOMIE -->
+  <section class="compare">
+    <div class="container">
+      <div class="head reveal" style="margin-bottom: 0;">
+        <span class="eyebrow">Pourquoi Nous Choisir</span>
+        <h2 style="max-width: 820px; margin: 0 auto;">Vous Économisez Jusqu'à <span style="color: var(--terracotta);">4000€ par An</span> avec les Méthodes Naturelles</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVANT/APRES -->
+  <section class="ba" id="resultats">
+    <div class="container">
+      <div class="head reveal">
+        <span class="eyebrow">Résultats Réels</span>
+        <h2>Des Transformations Qui Parlent d'Elles-Mêmes</h2>
+        <p class="lead">Voici les résultats obtenus grâce aux méthodes naturelles du Dr Mwamba.</p>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-card reveal">
+          <div class="ba-img"><img src="images/ba-1.png" alt="Avant/Après Mamadou" loading="lazy"></div>
+          <div class="ba-info">
+            <p class="ba-name">Mamadou D., 62 ans</p>
+            <p class="ba-time">Après 4 semaines</p>
+            <p class="ba-desc">Retrouvé son énergie et sa vitalité avec le programme naturel. Il remarche au parc chaque matin.</p>
+          </div>
+        </div>
+        <div class="ba-card reveal d1">
+          <div class="ba-img"><img src="images/ba-2.png" alt="Avant/Après Thérèse" loading="lazy"></div>
+          <div class="ba-info">
+            <p class="ba-name">Thérèse K., 58 ans</p>
+            <p class="ba-time">Après 4 semaines</p>
+            <p class="ba-desc">Un teint reposé et des cernes atténués grâce à un meilleur sommeil et une meilleure alimentation.</p>
+          </div>
+        </div>
+        <div class="ba-card reveal">
+          <div class="ba-img"><img src="images/ba-3.png" alt="Avant/Après Jean-Pierre" loading="lazy"></div>
+          <div class="ba-info">
+            <p class="ba-name">Jean-Pierre M., 65 ans</p>
+            <p class="ba-time">Après 6 semaines</p>
+            <p class="ba-desc">Fini la fatigue et le découragement. Il a retrouvé le plaisir de jardiner et de bouger sans douleur.</p>
+          </div>
+        </div>
+        <div class="ba-card reveal d1">
+          <div class="ba-img"><img src="images/ba-4.png" alt="Avant/Après Georgette" loading="lazy"></div>
+          <div class="ba-info">
+            <p class="ba-name">Georgette N., 60 ans</p>
+            <p class="ba-time">Après 4 semaines</p>
+            <p class="ba-desc">Plus d'énergie au quotidien et le retour du sourire. Elle cuisine à nouveau des repas sains avec plaisir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDES -->
+  <section class="guides" id="guides">
+    <div class="container">
+      <div class="head reveal">
+        <span class="eyebrow">Nos Guides Experts</span>
+        <h2>Choisissez Votre Guide Bien-Vieillir</h2>
+        <p class="lead">Des solutions naturelles éprouvées, à petit prix, avec des résultats visibles dès 2 semaines.</p>
+      </div>
+      <div class="guides-grid">
+
+        <!-- GUIDE 1 -->
+        <div class="guide reveal">
+          <span class="guide-badge bestseller">Best-seller</span>
+          <div class="guide-cover"><img class="guide-book" src="images/cover-1.png" alt="Guide 1"></div>
+          <div class="guide-body">
+            <div class="guide-rating"><span class="guide-stars">★★★★★</span><span class="guide-rating-txt">4.9/5 — 428 avis</span></div>
+            <h3>Comment Retrouver Votre Énergie en 30 Jours (Naturellement, Sans Café ni Compléments)</h3>
+            <p class="guide-desc">Retrouvez la pêche du matin au soir, naturellement. Le programme pour réveiller vos centrales énergétiques en douceur, sans café ni compléments.</p>
+            <ul class="guide-list">
+              <li>Réveillez vos centrales énergétiques naturellement</li>
+              <li>Programme progressif sur 30 jours</li>
+              <li>Sans café, sans compléments coûteux</li>
+            </ul>
+            <div class="guide-foot">
+              <div class="guide-price"><span class="guide-price-old">49€</span><span class="guide-price-new">7,62€</span></div>
+              <p class="guide-price-sub">Accès immédiat · PDF téléchargeable</p>
+              <a href="https://ijmfqgfe.mychariow.online/prd_7layp06r/checkout" class="btn btn-buy" target="_blank" rel="noopener">Je retrouve mon énergie — 7,62 €</a>
+              <p class="guide-guarantee">🛡️ Garantie 30 jours satisfait ou remboursé</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- GUIDE 2 -->
+        <div class="guide reveal d1">
+          <span class="guide-badge">Nouveau</span>
+          <div class="guide-cover"><img class="guide-book" src="images/cover-2.png" alt="Guide 2"></div>
+          <div class="guide-body">
+            <div class="guide-rating"><span class="guide-stars">★★★★★</span><span class="guide-rating-txt">4.8/5 — 312 avis</span></div>
+            <h3>Le Programme Protection 30 Jours : Les Aliments Qui Ralentissent le Vieillissement (Naturellement)</h3>
+            <p class="guide-desc">Et si votre assiette pouvait ralentir le vieillissement ? Les 8 aliments protecteurs que la recherche recommande le plus, et comment les préparer.</p>
+            <ul class="guide-list">
+              <li>Les 8 aliments qui protègent vos cellules</li>
+              <li>La bonne façon de les préparer</li>
+              <li>Une semaine anti-inflammatoire clé en main</li>
+            </ul>
+            <div class="guide-foot">
+              <div class="guide-price"><span class="guide-price-old">59€</span><span class="guide-price-new">9,15€</span></div>
+              <p class="guide-price-sub">Accès immédiat · PDF téléchargeable</p>
+              <a href="https://ijmfqgfe.mychariow.online/prd_xlselqgu/checkout" class="btn btn-buy" target="_blank" rel="noopener">Je protège mon corps — 9,15 €</a>
+              <p class="guide-guarantee">🛡️ Garantie 30 jours satisfait ou remboursé</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- GUIDE 3 -->
+        <div class="guide reveal">
+          <span class="guide-badge">Nouveau</span>
+          <div class="guide-cover"><img class="guide-book" src="images/cover-3.png" alt="Guide 3"></div>
+          <div class="guide-body">
+            <div class="guide-rating"><span class="guide-stars">★★★★★</span><span class="guide-rating-txt">4.9/5 — 267 avis</span></div>
+            <h3>Le Programme Sommeil 30 Jours — Dormez Mieux, Réveillez-Vous en Forme (Naturellement)</h3>
+            <p class="guide-desc">Vous dormez, mais vous vous réveillez encore fatiguée ? Quoi faire dans la dernière heure avant de dormir pour un sommeil vraiment réparateur.</p>
+            <ul class="guide-list">
+              <li>La routine du soir qui change tout</li>
+              <li>Des aides naturelles au sommeil</li>
+              <li>Que faire en cas de réveil à 3h du matin</li>
+            </ul>
+            <div class="guide-foot">
+              <div class="guide-price"><span class="guide-price-old">59€</span><span class="guide-price-new">9,15€</span></div>
+              <p class="guide-price-sub">Accès immédiat · PDF téléchargeable</p>
+              <a href="https://ijmfqgfe.mychariow.online/prd_zonvc0p2/checkout" class="btn btn-buy" target="_blank" rel="noopener">Je dors mieux — 9,15 €</a>
+              <p class="guide-guarantee">🛡️ Garantie 30 jours satisfait ou remboursé</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- GUIDE 4 -->
+        <div class="guide reveal d1" style="border: 2px solid var(--or-doux);">
+          <span class="guide-badge bestseller">🎁 Pack Complet</span>
+          <div class="guide-cover"><img class="guide-book" src="images/cover-4.png" alt="Pack Longévité"></div>
+          <div class="guide-body">
+            <div class="guide-rating"><span class="guide-stars">★★★★★</span><span class="guide-rating-txt">Meilleure offre</span></div>
+            <h3>La Méthode Longévité — Le Programme Complet en 3 Volumes (Énergie · Protection · Sommeil)</h3>
+            <p class="guide-desc">Les 3 programmes réunis pour transformer votre santé en 90 jours. Énergie, Protection et Sommeil — tout ce qu'il faut pour bien vieillir naturellement.</p>
+            <ul class="guide-list">
+              <li>Programme Énergie 30 Jours</li>
+              <li>Programme Protection 30 Jours</li>
+              <li>Programme Sommeil 30 Jours</li>
+            </ul>
+            <div class="guide-foot">
+              <div class="guide-price"><span class="guide-price-old">99€</span><span class="guide-price-new">15,24€</span></div>
+              <p class="guide-price-sub">Accès immédiat · 3 PDF téléchargeables</p>
+              <a href="https://ijmfqgfe.mychariow.online/prd_u7dmv158/checkout" class="btn btn-buy" target="_blank" rel="noopener">🎁 Je prends le pack complet — 15,24 €</a>
+              <p class="guide-guarantee">🛡️ Garantie 30 jours satisfait ou remboursé</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMOIGNAGES -->
+  <section class="testi" id="avis">
+    <div class="container">
+      <div class="head reveal">
+        <span class="eyebrow">Témoignages</span>
+        <h2>Ils Ont Transformé Leur Quotidien Naturellement</h2>
+        <p class="lead">Plus de 5 000 personnes nous font confiance. Voici leurs histoires.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-top">
+            <img class="testi-avatar" src="images/testi-1.png" alt="Émile">
+            <div><p class="testi-name">Émile T., 64 ans</p><p class="testi-loc">Yaoundé, Cameroun</p></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« À 64 ans, je me levais déjà fatigué. Je pensais que c'était l'âge. En 3 semaines avec le programme du Dr. Mwamba, j'ai retrouvé une énergie que je n'avais plus depuis 10 ans. Je joue à nouveau avec mes petits-enfants sans être épuisé. Merci Docteur 🙏 »</p>
+        </div>
+        <div class="testi-card reveal d1">
+          <div class="testi-top">
+            <img class="testi-avatar" src="images/testi-2.png" alt="Odette">
+            <div><p class="testi-name">Odette M., 59 ans</p><p class="testi-loc">Kinshasa, RDC</p></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Cela faisait des années que je me réveillais à 3h du matin sans pouvoir me rendormir. Grâce à la routine du soir du Dr. Mwamba, je dors enfin des nuits complètes. Je me réveille reposée pour la première fois depuis longtemps. Tout est naturel, sans médicament. Gloire à Dieu ! 🙏 »</p>
+        </div>
+        <div class="testi-card reveal d2">
+          <div class="testi-top">
+            <img class="testi-avatar" src="images/testi-3.png" alt="Henriette">
+            <div><p class="testi-name">Henriette B., 62 ans</p><p class="testi-loc">Abidjan, Côte d'Ivoire</p></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« J'avais peur de vieillir et de tomber malade comme ma mère. Le Dr. Mwamba m'a appris quels aliments protègent vraiment mon corps. Depuis, je me sens plus forte, plus légère, et mon médecin est surpris de mes derniers bilans ! Merci Docteur 🙏 »</p>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-top">
+            <img class="testi-avatar" src="images/testi-1.png" alt="Léonard">
+            <div><p class="testi-name">Léonard N., 67 ans</p><p class="testi-loc">Brazzaville, Congo</p></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Mes genoux me faisaient souffrir chaque matin, je n'arrivais plus à marcher longtemps. J'ai suivi les conseils naturels du Dr. Mwamba pendant 5 semaines. Aujourd'hui je marche 40 minutes chaque matin, sans douleur ! Que Dieu bénisse le Docteur 🙏 »</p>
+        </div>
+        <div class="testi-card reveal d1">
+          <div class="testi-top">
+            <img class="testi-avatar" src="images/testi-2.png" alt="Joseph & Alice">
+            <div><p class="testi-name">Joseph & Alice K., 65 & 63 ans</p><p class="testi-loc">Douala, Cameroun</p></div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Nous avons suivi les programmes du Dr. Mwamba tous les deux. Résultat : plus d'énergie, un meilleur sommeil, et nous marchons ensemble chaque matin. À notre âge, on revit ! Nous les recommandons à tous nos amis de l'église 🙏❤️ »</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHATSAPP -->
+  <section class="whatsapp">
+    <div class="container">
+      <div class="head reveal">
+        <span class="eyebrow">💬 Messages Réels</span>
+        <h2>Ils Nous Écrivent sur WhatsApp</h2>
+        <p class="lead">Des messages authentiques de nos clients — non retouchés, non filtrés.</p>
+      </div>
+      <div class="whatsapp-grid" style="max-width: 720px; margin: 0 auto;">
+        <div class="whatsapp-card reveal"><img src="images/whatsapp-1.png" alt="Message WhatsApp Émile" loading="lazy"></div>
+        <div class="whatsapp-card reveal d1"><img src="images/whatsapp-2.png" alt="Message WhatsApp Léonard" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DR MWAMBA -->
+  <section class="doc">
+    <div class="container">
+      <div class="doc-grid">
+        <div class="doc-photo reveal">
+          <!-- IMAGE : photo Dr Mwamba -->
+          <img src="images/dr-mwamba.png" alt="Dr Mwamba">
+        </div>
+        <div class="doc-content reveal d2">
+          <span class="eyebrow">Votre Expert</span>
+          <h2>Dr Mwamba</h2>
+          <p class="doc-role">Médecin — Spécialiste du Bien-Vieillir Naturel</p>
+          <p class="doc-bio">
+            Bonjour, je suis le Dr Mwamba, médecin passionné par le bien-vieillir et la santé naturelle. Depuis plus de 10 ans, j'accompagne les personnes à traverser les années avec sérénité, énergie et beauté — grâce à des méthodes simples et naturelles.
+          </p>
+          <p class="doc-bio">
+            Ma mission : vous montrer que bien vieillir n'est pas une question de chance ou d'argent, mais de connaissance. Avec les bons gestes naturels, chacun peut rester en forme et rayonnant à tout âge.
+          </p>
+          <ul class="doc-creds">
+            <li>Médecin diplômé</li>
+            <li>Plus de 10 ans d'expérience clinique</li>
+            <li>Spécialiste du bien-vieillir naturel</li>
+            <li>Plus de 5 000 personnes accompagnées</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="reveal"><span class="stat-num">5000+</span><span class="stat-label">Personnes accompagnées</span></div>
+        <div class="reveal d1"><span class="stat-num">98%</span><span class="stat-label">Taux de satisfaction</span></div>
+        <div class="reveal d2"><span class="stat-num">10 ans</span><span class="stat-label">D'expertise médicale</span></div>
+        <div class="reveal d3"><span class="stat-num">30 j</span><span class="stat-label">Garantie remboursée</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GARANTIE -->
+  <section class="guarantee">
+    <div class="container">
+      <div class="guarantee-box reveal">
+        <div class="guarantee-icon">🛡️</div>
+        <h2>Garantie 30 Jours — Zéro Risque</h2>
+        <p>Essayez nos guides en toute tranquillité. Si dans les 30 jours vous n'êtes pas pleinement satisfait, nous vous remboursons intégralement. Aucune question posée. Vous n'avez absolument rien à perdre.</p>
+        <a href="#guides" class="btn btn-terra">Je commence sans risque →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="head reveal">
+        <span class="eyebrow">Questions Fréquentes</span>
+        <h2>Tout Ce Que Vous Devez Savoir</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal"><button class="faq-q">Ces méthodes fonctionnent-elles vraiment ?<span class="faq-arrow">▾</span></button><div class="faq-a"><div class="faq-a-in">Oui. Les méthodes du Dr Mwamba sont basées sur des principes naturels reconnus et l'expérience clinique. Elles ont déjà aidé plus de 5 000 personnes à bien vieillir naturellement.</div></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Au bout de combien de temps vais-je voir des résultats ?<span class="faq-arrow">▾</span></button><div class="faq-a"><div class="faq-a-in">Les premiers résultats apparaissent après 2 à 3 semaines de pratique régulière. Les résultats significatifs sont visibles après 4 à 8 semaines.</div></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Combien de temps par jour faut-il ?<span class="faq-arrow">▾</span></button><div class="faq-a"><div class="faq-a-in">Seulement 10 minutes par jour. Nos programmes s'intègrent facilement dans votre routine quotidienne.</div></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Comment vais-je recevoir mes guides ?<span class="faq-arrow">▾</span></button><div class="faq-a"><div class="faq-a-in">Immédiatement après votre paiement, vous recevez un email avec le lien de téléchargement de votre PDF, consultable sur ordinateur, tablette ou smartphone.</div></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Et si ça ne me convient pas ?<span class="faq-arrow">▾</span></button><div class="faq-a"><div class="faq-a-in">Vous bénéficiez d'une garantie 30 jours satisfait ou remboursé. Si vous n'êtes pas satisfait, écrivez-nous et nous vous remboursons intégralement.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINALE -->
+  <div class="final">
+    <div class="container final-inner reveal">
+      <h2>Prêt à Bien Vieillir Naturellement ?</h2>
+      <p class="lead">Rejoignez les milliers de personnes qui ont déjà transformé leur quotidien. Commencez dès aujourd'hui.</p>
+      <div class="final-buttons">
+        <a href="https://ijmfqgfe.mychariow.online/prd_7layp06r/checkout" class="final-btn" target="_blank" rel="noopener">Énergie — 7,62 €</a>
+        <a href="https://ijmfqgfe.mychariow.online/prd_xlselqgu/checkout" class="final-btn" target="_blank" rel="noopener">Protection — 9,15 €</a>
+        <a href="https://ijmfqgfe.mychariow.online/prd_zonvc0p2/checkout" class="final-btn" target="_blank" rel="noopener">Sommeil — 9,15 €</a>
+        <a href="https://ijmfqgfe.mychariow.online/prd_u7dmv158/checkout" class="final-btn" target="_blank" rel="noopener">🎁 Pack Longévité — 15,24 €</a>
+      </div>
+      <p class="final-trust">🛡️ Garantie 30 jours · ⚡ Téléchargement instantané</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">Dr Mwamba <span>Bien-Vieillir</span></a>
+          <p class="footer-tag">Des méthodes 100% naturelles pour bien vieillir en beauté et en santé, validées par un médecin.</p>
+        </div>
+        <div class="footer-col"><h4>Nos Guides</h4><ul>
+          <li><a href="https://ijmfqgfe.mychariow.online/prd_7layp06r/checkout" target="_blank">Programme Énergie</a></li>
+          <li><a href="https://ijmfqgfe.mychariow.online/prd_xlselqgu/checkout" target="_blank">Programme Protection</a></li>
+          <li><a href="https://ijmfqgfe.mychariow.online/prd_zonvc0p2/checkout" target="_blank">Programme Sommeil</a></li>
+          <li><a href="https://ijmfqgfe.mychariow.online/prd_u7dmv158/checkout" target="_blank">Pack Longévité</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>À Propos</h4><ul>
+          <li><a href="#video">Présentation</a></li>
+          <li><a href="#avis">Témoignages</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Support</h4><ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Garantie</a></li>
+          <li><a href="#">Mentions légales</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Dr Mwamba Bien-Vieillir — Tous droits réservés</p>
+        <p style="margin-top:6px;">Les résultats peuvent varier d'une personne à l'autre. Ces guides ne remplacent pas une consultation médicale.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY CTA MOBILE -->
+  <div class="sticky-cta">
+    <div class="sticky-cta-info">
+      <strong>Nos Guides</strong>
+      <span>À partir de 7,62€</span>
+    </div>
+    <a href="#guides">Voir les guides →</a>
+  </div>
+
+  <!-- NOTIF ACHAT -->
+  <div class="buy-notif" id="buy-notif">
+    <button class="buy-notif-close" id="buy-notif-close" aria-label="Fermer">✕</button>
+    <div class="buy-notif-icon">🛍️</div>
+    <div class="buy-notif-content">
+      <div class="bn-name" id="bn-name"></div>
+      <div class="bn-product" id="bn-product"></div>
+      <div class="bn-time" id="bn-time"></div>
+    </div>
+  </div>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+
+    const burger = document.getElementById('burger');
+    const mnav = document.getElementById('mnav');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('on');
+      mnav.classList.toggle('open');
+      document.body.style.overflow = mnav.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', () => {
+      burger.classList.remove('on'); mnav.classList.remove('open'); document.body.style.overflow = '';
+    }));
+
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const a = item.querySelector('.faq-a');
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+        if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+      });
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Notifications d'achat
+    (function() {
+      const notif = document.getElementById('buy-notif');
+      const nameEl = document.getElementById('bn-name');
+      const productEl = document.getElementById('bn-product');
+      const timeEl = document.getElementById('bn-time');
+      const closeBtn = document.getElementById('buy-notif-close');
+      if (!notif) return;
+      const prenoms = ['Marie','Sophie','Nathalie','Christine','Isabelle','Catherine','Françoise','Monique','Sylvie','Brigitte','Aïssatou','Chantal','Fatou','Awa','Béatrice','Nicole','Jacqueline','Denise','Céline','Patricia'];
+      const villes = ['Paris','Lyon','Marseille','Bruxelles','Abidjan','Dakar','Kinshasa','Douala','Yaoundé','Cotonou','Lomé','Montréal','Genève','Brazzaville','Libreville','Bordeaux','Lille'];
+      const produits = ['le Programme Énergie','le Programme Protection','le Programme Sommeil','le Pack Longévité'];
+      function rand(a){return a[Math.floor(Math.random()*a.length)];}
+      function show(){
+        nameEl.textContent = rand(prenoms)+' de '+rand(villes);
+        productEl.textContent = 'vient d\'acheter '+rand(produits);
+        timeEl.textContent = 'Il y a '+(Math.floor(Math.random()*14)+2)+' minutes · Achat vérifié ✓';
+        notif.classList.add('show');
+        setTimeout(()=>notif.classList.remove('show'),5000);
+      }
+      let stopped=false;
+      closeBtn.addEventListener('click',()=>{notif.classList.remove('show');stopped=true;});
+      setTimeout(function loop(){ if(stopped)return; show(); setTimeout(loop,(Math.floor(Math.random()*10)+15)*1000); },8000);
+    })();
+  </script>
+
+</body>
+</html>
